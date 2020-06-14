@@ -5,6 +5,7 @@ i3lock
 picom
 ranger
 termite
+rofi
 
 -- AUR --
 polybar
