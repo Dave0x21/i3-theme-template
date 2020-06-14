@@ -1,0 +1,4 @@
+rofi.theme: /home/dave/.config/rofi/colors-rofi-dark.rasi
+rofi.font: SourceCodePro 10
+#rofi.icon-theme: Papirus
+#rofi.show-icons: true
