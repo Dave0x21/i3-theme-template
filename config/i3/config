@@ -164,25 +164,12 @@ assign [class="Xarchiver"] $ws5
 assign [class="TelegramDesktop"] $ws5
 assign [class="feh"] $ws5
 
-#smart_gaps on
-
-# brightness controls
-bindsym XF86MonBrightnessDown exec "brightness -"
-bindsym XF86MonBrightnessUp exec "brightness +"
-
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-bindsym $mod+mod1+space exec --no-startup-id playerctl play-pause
-bindsym $mod+mod1+n exec --no-startup-id playerctl next
-bindsym $mod+mod1+p exec --no-startup-id playerctl previous
-
 bindsym Print exec flameshot full -p ~/Pictures
-
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
 
 # locking screen
 bindsym $mod+l exec i3lock -t -i ~/Pictures/Flat-Design-Wallpapers-HD.png
@@ -194,6 +181,7 @@ exec --no-startup-id feh --bg-fill ~/Pictures/Flat-Design-Wallpapers-HD.png
 # Startup compositor
 exec --no-startup-id picom 
 
+# Startup Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Load layout for the frist workspace
@@ -205,10 +193,12 @@ exec --no-startup-id termite -e "sudo dmesg -w --human --notime" --class="Dmesg"
 exec --no-startup-id termite -e "tty-clock -c -B" --class="Clock"
 exec --no-startup-id termite -e "ytop -c personal" --class="Ytop"
 
+# Load layout for the second workspace
 exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/dave/.config/i3/workspace-2.json'"
 exec --no-startup-id termite -e "vim /home/dave/.config/i3/i3.kbind" --class="Vim" 
 exec --no-startup-id termite
 
+# Startup some application
 exec --no-startup-id twmnd
 exec --no-startup-id flameshot
 exec --no-startup-id automount
