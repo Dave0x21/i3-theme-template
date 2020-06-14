@@ -1,0 +1,88 @@
+[options]
+allow_bold = true
+#audible_bell = false
+bold_is_bright = true
+#cell_height_scale = 1.0
+#cell_width_scale = 2.0
+#clickable_url = true
+#dynamic_title = true
+font = SourceCodePro 10
+#fullscreen = true
+#icon_name = terminal
+#mouse_autohide = false
+#scroll_on_output = false
+#scroll_on_keystroke = true
+# Length of the scrollback buffer, 0 disabled the scrollback buffer
+# and setting it to a negative value means "infinite scrollback"
+scrollback_lines = -1
+#search_wrap = true
+#urgent_on_bell = true
+#hyperlinks = false
+
+# $BROWSER is used by default if set, with xdg-open as a fallback
+#browser = xdg-open
+
+# "system", "on" or "off"
+cursor_blink = on
+
+# "block", "underline" or "ibeam"
+cursor_shape = block
+
+# Hide links that are no longer valid in url select overlay mode
+#filter_unmatched_urls = true
+
+# Emit escape sequences for extra modified keys
+#modify_other_keys = false
+
+# set size hints for the window
+#size_hints = false
+
+# "off", "left" or "right"
+scrollbar = off
+
+[colors]
+# If both of these are unset, cursor falls back to the foreground color,
+# and cursor_foreground falls back to the background color.
+#cursor = #dcdccc
+#cursor_foreground = #dcdccc
+
+foreground = #16a085
+#foreground_bold = #ffffff
+background = #2c3e50
+
+# 20% background transparency (requires a compositor)
+# background = rgba(63, 63, 63, 0.8)
+
+# If unset, will reverse foreground and background
+#highlight = #1f1f1f
+
+# Colors from color0 to color254 can be set
+color0 = #2c3e50
+color1 = #c0392b
+color2 = #16a085
+color3 = #f39c12
+color4 = #2980b9
+color5 = #8e44ad
+color6 = #27ae60
+color7 = #bdc3c7
+color8 = #3c546d
+color9 = #e74c3c
+color10 = #1abc9c
+color11 = #f1c40f
+color12 = #3498db
+color13 = #9b59b6
+color14 = #2ecc71
+color15 = #ecf0f1
+
+[hints]
+#font = Monospace 12
+#foreground = #000
+#background = #3f3f3f
+#active_foreground = #e68080
+#active_background = #3f3f3f
+#padding = 2
+#border = #3f3f3f
+#border_width = 0.5
+#roundness = 2.0
+
+# vim: ft=dosini cms=#%s

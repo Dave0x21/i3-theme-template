@@ -1,0 +1,39 @@
+NEW TERMINAL                mod + Return
+FLOATING TERMINAL           mod + Shift + Return
+
+CLOSE WINDOW                mod + Shift + q
+
+START APP                   mod + r
+SHOW WINDOW                 mod + p
+
+MOVE FOCUS                  mod + {Left, Down, Up, Right}
+MOVE WINDOW                 mod + Shift + {Left, Down, Up, Right}
+
+SPLIT HORIZONTAL            mod + h
+SPLIT VERTICAL              mod + v
+
+FULLSCREEN                  mod + f
+TILING / FLOATING           mod + Shift + Space
+
+FOCUS PARENT CONTAINER      mod + a
+FOCUS CHILD CONTAINER       mod + d
+
+WORKSPACE HOME              mod + {1, 2}
+WORKSPACE TERM              mod + 3
+WORKSPACE WEB               mod + 4
+WORKSPACE MISC              mod + 5
+WORKSPACE CODE              mod + 6
+
+MOVE WORKSPACE TO SCREEN    mod + Ctrl + p
+MOVE CONTAINER WORKSPACE    mod + Shift + {1, 2, 3, 4, 5, 6}
+
+RELOAD I3                   mod + Shift + c
+RESTART I3                  mod + Shift + r
+
+REARRANGE MODE              mod + Ctrl + r
+{
+    RESIZE                  {Left, Down, Up, Right}
+    MOVE                    Shift + {Left, Down, Up, Right}
+    EXIT REARRANGE          {Return, Escape}
+}
+

@@ -1,0 +1,50 @@
+{
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.4,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 434,
+               "width": 654,
+               "x": 0,
+               "y": 0
+            },
+            "name": "vim",
+            "percent": 1,
+            "swallows": [
+               {
+                "class": "^Vim$",
+                "instance": "^termite$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+{
+    "border": "pixel",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 434,
+       "width": 654,
+       "x": 0,
+       "y": 0
+    },
+    "name": "Termite",
+    "percent": 0.6,
+    "swallows": [
+       {
+        "class": "^Termite$",
+        "instance": "^termite$"
+       }
+    ],
+    "type": "con"
+}
+
