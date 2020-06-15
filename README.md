@@ -6,6 +6,7 @@ My installation is on Arch Linux but it can work on all distro!
 
 # Screenshot
 ![Screenshot](https://raw.githubusercontent.com/Dave0x21/i3-theme-template/single_screen/screenshot.png)
+
 # Installation
 ##### Manual
 * Install dependecies
@@ -14,3 +15,13 @@ My installation is on Arch Linux but it can work on all distro!
 ##### From script
 * Install dependecies
 * Launch install.sh without sudo
+
+# Optional Dependecies
+* **flameshot** - Take screenshot ([Flameshot Repository](https://github.com/lupoDharkael/flameshot))
+* **feh** - Set desktop wallpaper and image viewer ([Feh Web Site](https://feh.finalrewind.org/))
+* **xautolock** - Set lockscreen after a specified time ([XAutolock Repository](https://github.com/l0b0/xautolock))
+* **udisks2** - Needed for automount ([Udisks Web Site](https://www.freedesktop.org/wiki/Software/udisks/))
+* **twmn** - Notification server ([Twmn Repository](https://github.com/sboli/twmn))
+
+# Tips & Tricks
+* To display the preview of images from ranger you need to install **w3m**
