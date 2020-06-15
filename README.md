@@ -29,14 +29,17 @@ My installation is on Arch Linux but it can work on all distro!
 
 # FAQ
 * ##### Backlight doesn't show on polybar
-  If the backlight information doesn't display on polybar you have to modify polybar configuration file at line 105 and modify `intel_backlight` with your screen card name.
+  You have to modify polybar configuration file at line 105 and modify `intel_backlight` with your screen card name.
 
   You can retrive your screen card name with `ls /sys/class/backlight`
 
-* #### I can't modify backlight value
+* ##### I can't modify backlight value
   The recommended way is to add the user to the `video` group and give that group write-privileges for the `brightness` file.
 
   See the ArchWiki for more information: https://wiki.archlinux.org/index.php/Backlight#ACPI
+ 
+* ##### Ethernet/WLAN doesn't show on polybar
+  You have to modify polybar configuration file at line 127 for `wlan` or line 145 for `ethernet` with the appropriate name of cards
 
 
 # Tips & Tricks
