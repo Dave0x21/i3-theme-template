@@ -1,0 +1,204 @@
+set $secondary #1abc9c
+set $primary #2c3e50
+
+# class                 border       backgr. text indicator child_border
+client.focused          $primary     $primary     $secondary  $primary       $primary
+client.focused_inactive $primary     $primary     $secondary  $primary       $primary
+client.unfocused        $primary     $primary     $secondary  $primary       $primary
+client.urgent           $primary     $primary     $secondary  $primary       $primary
+client.placeholder      $primary     $primary     $secondary  $primary       $primary
+
+client.background       $primary
+
+set $thick 2
+
+# GAP VARIABLES
+set $inner 30
+set $outer 14
+
+# SET GAPS
+gaps inner $inner
+gaps outer $outer
+
+set $mod Mod4
+
+font xft:SourceCodePro 10
+
+floating_modifier $mod
+
+for_window [class="FTermite"] floating enable
+
+# execute terminals
+bindsym $mod+Return exec termite
+
+# execute floating terminal 
+bindsym $mod+Shift+Return exec termite --class FTermite
+
+# kill window
+bindsym $mod+Shift+q kill
+
+# rofi stuff 
+bindsym $mod+r exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu -font "SourceCodePro 10"'
+bindsym $mod+p exec --no-startup-id rofi -show window -font "SourceCodePro 10"
+
+# moving focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# moving container
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Toggle between split/tabbed:
+bindsym $mod+x layout toggle splitv splith tabbed 
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+d focus child
+
+# workspace names
+# HOME
+set $ws1 "1" 
+# TEMRINAL
+set $ws2 "2"
+# WEB
+set $ws3 "3"
+# MISCELLANEOUS
+set $ws4 "4"
+# CODING
+set $ws5 "5"
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+mode "rearrange" {
+
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # greater sizes
+        bindsym Mod1+Left resize shrink width 30 px or 30 ppt
+        bindsym Mod1+Down resize grow height 30 px or 30 ppt
+        bindsym Mod1+Up resize shrink height 30 px or 30 ppt
+        bindsym Mod1+Right resize grow width 30 px or 30 ppt
+
+        # EVEN GREATER SIZES !!11
+        bindsym Mod1+Shift+Left resize shrink width 50 px or 50 ppt
+        bindsym Mod1+Shift+Down resize grow height 50 px or 50 ppt
+        bindsym Mod1+Shift+Up resize shrink height 50 px or 50 ppt
+        bindsym Mod1+Shift+Right resize grow width 50 px or 50 ppt
+
+        # move
+        bindsym Shift+Left move left 30 px
+        bindsym Shift+Down move down 30 px
+        bindsym Shift+Up move up 30 px
+        bindsym Shift+Right move right 30 px
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+ctrl+r mode "rearrange"
+
+
+# minor aeshthetics
+for_window [class="^.*"] border pixel 0
+new_window 1pixel
+bindsym $mod+t border normal
+bindsym $mod+u border pixel 0
+
+# window rules
+title_align center
+for_window [class=".*"] title_format "<b>%title</b>"
+
+# floating rules
+set $float floating enable, border normal 0
+for_window [class="bookmarks"] $float
+for_window [class="Arandr"] $float
+for_window [class="File Transfer*"] $float
+for_window [class="Nm-connection-editor"] $float
+
+# workspace rules
+assign [class="firefox"] $ws3
+assign [class="VSCodium"] $ws5
+assign [class="Xarchiver"] $ws4
+assign [class="TelegramDesktop"] $ws4
+assign [class="feh"] $ws4
+
+#smart_gaps on
+
+# brightness controls
+bindsym XF86MonBrightnessDown exec "brightness -"
+bindsym XF86MonBrightnessUp exec "brightness +"
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+bindsym $mod+mod1+space exec --no-startup-id playerctl play-pause
+bindsym $mod+mod1+n exec --no-startup-id playerctl next
+bindsym $mod+mod1+p exec --no-startup-id playerctl previous
+
+bindsym Print exec flameshot full -p ~/Pictures
+
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# locking screen
+bindsym $mod+l exec i3lock -t -i ~/Pictures/ceystalhorizon.png
+exec --no-startup-id "xautolock -time 5 -locker 'i3lock -i ~/Pictures/ceystalhorizon.png'"
+
+# Setting background
+exec --no-startup-id feh --bg-fill ~/Pictures/ceystalhorizon.png
+
+# Startup compositor
+exec --no-startup-id picom 
+
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+# Load layout for the frist workspace
+exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/workspace-1.json'"
+
+exec --no-startup-id termite -e ranger --class="Ranger"
+exec --no-startup-id termite
+exec --no-startup-id termite -e "sudo dmesg -w --human --notime" --class="Dmesg"
+exec --no-startup-id termite -e "tty-clock -c -B" --class="Clock"
+exec --no-startup-id termite -e "ytop -c personal" --class="Ytop"
+
+exec --no-startup-id twmnd
+exec --no-startup-id battery_notify
+exec --no-startup-id flameshot
+exec --no-startup-id automount

@@ -1,0 +1,19 @@
+-- Arch Repo --
+xorg-server
+i3-gaps
+i3lock
+picom
+ranger
+termite
+rofi
+
+-- AUR --
+polybar
+ytop
+tty-clock
+
+-- Optional --
+flameshot
+feh
+xautolock
+twmn-git [AUR]

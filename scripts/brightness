@@ -1,0 +1,17 @@
+#!/bin/bash
+
+SCREEN=$(ls /sys/class/backlight/)
+BRIGHT=$(cat /sys/class/backlight/$SCREEN/brightness)
+
+if [ "$1" = '+' ]; then
+    NEWBRIGHT=$(echo "$BRIGHT + 100" | bc)
+    if [ "$(echo "$NEWBRIGHT > 7500" | bc)" -eq 1 ]; then
+        NEWBRIGHT='7500'
+    fi
+elif [ "$1" = '-' ]; then
+    NEWBRIGHT=$(echo "$BRIGHT - 100" | bc)
+    if [ "$(echo "$NEWBRIGHT < 0" | bc)" -eq 1 ]; then
+        NEWBRIGHT='0'
+    fi
+fi
+echo $NEWBRIGHT > "/sys/class/backlight/$SCREEN/brightness"

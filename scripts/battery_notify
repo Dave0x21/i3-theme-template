@@ -1,0 +1,36 @@
+#!/bin/bash
+
+#export DISPLAY="$(w -h $USER | awk '$3 ~ /:[0-9.]*/{print $3}')"
+XAUTHORITY="$HOME/.Xauthority"
+
+CRITICAL_LEVEL="${CRITICAL_LEVEL:-5}"
+LOW_LEVEL="${LOW_LEVEL:-10}"
+
+while :
+do
+	if [[ -r "$HOME/.dbus/Xdbus" ]]; then
+		source "$HOME/.dbus/Xdbus"
+	fi
+
+	battery_level="$(acpi -b | grep -v "Charging" | grep -P -o '([0-9]+(?=%))')"
+
+	if [[ "$battery_level" -eq "$CRITICAL_LEVEL" ]]; then
+		notify-send -t 15000 -u normal " Battery Critical" "Battery level is ${battery_level}%"
+		while [[ "$battery_level" -eq "$CRITICAL_LEVEL" ]]
+		do
+			sleep 120
+		done
+	fi
+
+	if [[ "$battery_level" -eq "$LOW_LEVEL" ]]; then
+		notify-send -t 15000 -u normal " Battery Low" "Battery level is ${battery_level}%"
+		while [[ "$battery_level" -eq "$LOW_LEVEL" ]]
+		do
+			sleep 120
+		done
+	fi
+
+	sleep 1
+done
+
+return 0
