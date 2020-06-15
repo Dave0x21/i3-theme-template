@@ -6,6 +6,8 @@ picom
 ranger
 termite
 rofi
+adobe-source-code-pro-fonts
+ttf-font-awesome
 
 -- AUR --
 polybar
